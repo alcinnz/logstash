@@ -223,7 +223,7 @@ namespace "vendor" do
         # was told to stop using the bundler ruby api. Oh well :(
         bundler = File.join(Gem.bindir, "bundle")
         jruby = File.join("vendor", "jruby", "bin", "jruby")
-        cmd = [jruby,  bundler, "install", "--gemfile=tools/Gemfile", "--path", LogStash::Environment::BUNDLE_DIR, "--clean", "--without", "development", "--jobs", "4"]
+        cmd = [jruby,  bundler, "install", "--gemfile=tools/Gemfile", "--path", LogStash::Environment::BUNDLE_DIR, "--standalone", "--clean", "--without", "development", "--jobs", "4"]
         system(*cmd)
         raise $! unless $?.success?
         break
